@@ -1,0 +1,4 @@
+id, fio, birthday, gender, group, average mark, has grant, education type
+1,Surname Name Last Name,1970.1.1,MEN,Group1,4.2,CORRESPONDENCE,false
+2,Surname2 Name2 Last Name2,1980.2.2,WOMEN,Group2,4.3,CORRESPONDENCE,true
+3,Surname3 Name3 Last Name3,1983.2.2,WOMEN,Group2,3,CORRESPONDENCE,false
