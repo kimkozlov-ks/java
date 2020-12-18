@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+    <div th:fragment="header(title)"
+         style="display: block; width: 100%; background-color: #CCC; height: 80px;">
+        <h1 style="padding-left:30px; position: relative; top: 50%;  transform: translate(0, -50%);">[[${title}]]</h1>
+    </div>
+    <footer style="position : absolute;bottom : 0; width:100%; height : 40px; margin-top : 40px; left:0; background-color: #CCC;"
+           th:fragment="footer(currentDate)">
+        <h4 style="padding-left:15px; position: relative; bottom: 50%;  transform: translate(0, 75%);"><span>@Copyright [[${currentDate}]]</span></h4>
+    </footer>
+</body>
+</html>

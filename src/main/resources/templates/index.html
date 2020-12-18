@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        table {
+            margin-top: 50px;
+            width: 100%;
+            border: 4px double black;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            background: #bbb;
+            padding: 5px;
+            border: 1px solid black;
+        }
+        td {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <header th:insert="fragment/general.html :: header(title = ${pageTitle})">
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <th> Имя </th>
+                <th> Цена </th>
+                <th> Тип </th>
+                <th> Описание </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:if="${products.empty}">
+                <td colspan="2"> No Products Available </td>
+            </tr>
+            <tr th:each="product : ${products}">
+                <td><span th:text="${product.name}"> - </span></td>
+                <td><span th:text="${product.cost}"> - </span></td>
+                <td><span th:text="${product.type}"> - </span></td>
+                <td><span th:text="${product.description}"> - </span></td>
+            </tr>
+        </tbody>
+    </table>
+    <button style="margin-top: 50px; float: right; width: 10%; height:50px; font-size: 18px; margin-right: 20px;"><a href="/product/add">Добавить</a></button>
+</body>
+<div th:replace="fragment/general.html :: footer(currentDate = ${currentDate})">
+</div>
+</html>

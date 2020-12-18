@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        form {
+            background-color: #FFF;
+            height: 600px;
+            width: 600px;
+            margin-left: 100px;
+            margin-top: 50px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 0px;
+            text-align:center;
+        }
+        label {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 18px;
+            color: #333;
+            height: 20px;
+            width: 200px;
+            margin-top: 10px;
+            margin-left: 10px;
+            text-align: right;
+            clear: both;
+            float:left;
+            margin-right:15px;
+        }
+        input, select {
+            height: 20px;
+            width: 300px;
+            border: 1px solid #000;
+            margin-top: 10px;
+            float: left;
+        }
+        input[type=submit] {
+            margin-top: 50px;
+            float: right;
+            width: 25%;
+            height:50px;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header th:insert="fragment/general.html :: header(title = ${pageTitle})">
+    </header>
+    <form th:action="@{add}" th:object="${product}" method="POST">
+        <div>
+            <label for="name">Наименование</label>
+            <input id="name" type="text" th:field="*{name}"/>
+        </div>
+        <div>
+            <label for="price">Цена</label>
+            <input id="price" type="text" th:field="*{cost}"/>
+        </div>
+        <div>
+            <label for="type">Тип</label>
+            <select id="type" th:field="*{type}">
+                <option value="NONE">----Select----</option>
+                <option th:each="type : ${T(com.thymeleaf.thymeleaf_dz.model.ProductType).values()}"
+                        th:value="${type}" th:text="${type}"></option>
+            </select>
+        </div>
+        <div>
+            <label for="description">Описание</label>
+            <input id="description" type="text" th:field="*{description}"   />
+        </div>
+        <div>
+            <input type="submit" value="Добавить"/>
+        </div>
+    </form>
+</body>
+<div th:replace="fragment/general.html :: footer(currentDate = ${currentDate})">
+</div>
+</html>
